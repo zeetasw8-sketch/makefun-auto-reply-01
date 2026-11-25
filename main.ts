@@ -10,6 +10,7 @@ const AUTO_REPLY =
 
 const MIN_CHARS = 120;
 const MAX_CHARS = 140;
+const ENTRY_FILENAME = "entry.txt";
 
 function resolveTargetDir(): string {
   const configured = process.env.MAKEFUN_OUTPUT_DIR;
@@ -37,7 +38,7 @@ function emitEntry(): void {
   checkReply(AUTO_REPLY);
   const targetDir = resolveTargetDir();
   fs.mkdirSync(targetDir, { recursive: true });
-  fs.writeFileSync(path.join(targetDir, "entry.txt"), AUTO_REPLY, "utf8");
+  fs.writeFileSync(path.join(targetDir, ENTRY_FILENAME), AUTO_REPLY, "utf8");
 }
 
 emitEntry();
